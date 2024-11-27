@@ -51,6 +51,4 @@ Follow the steps below to set up the project on your local machine.
 
 Clone the repository to your local machine using the following command:
 
-```bash
 git clone https://github.com/yourusername/your-repository.git
-"# Web-App-Gestion-Absence" 
