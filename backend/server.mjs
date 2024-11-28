@@ -1,18 +1,18 @@
 import express, { json } from 'express'; // Import express and json from express module
 import { config } from 'dotenv'; // Import config function from dotenv module
-import connectDB from './config/db'; // Import connectDB function from db module
-import etudiantRoutes from './routes/etudiantRoutes'; // Import etudiantRoutes from etudiantRoutes module
-import enseignantRoutes from './routes/enseignantRoutes'; // Import enseignantRoutes from enseignantRoutes module
-import absenceRoutes from './routes/absenceRoutes'; // Import absenceRoutes from absenceRoutes module
-import filiereRoutes from './routes/filiereRoutes'; // Import filiereRoutes from filiereRoutes module
-import departementRoutes from './routes/departementRoutes'; // Import departementRoutes from departementRoutes module
-import userRoutes from './routes/userRoutes'; // Import userRoutes from userRoutes module
-import moduleRoutes from './routes/moduleRoutes'; // Import moduleRoutes from moduleRoutes module
-import elementModuleRoutes from './routes/elementModuleRoutes'; // Import elementModuleRoutes from elementModuleRoutes module
-import administrateurRoutes from './routes/administrateurRoutes'; // Import adminRoutes from adminRoutes module
+import connectDB from './config/db.js'; // Import connectDB function from db module
+import etudiantRoutes from './routes/etudiantRoutes.js'; // Import etudiantRoutes from etudiantRoutes module
+import enseignantRoutes from './routes/enseignantRoutes.js'; // Import enseignantRoutes from enseignantRoutes module
+import absenceRoutes from './routes/absenceRoutes.js'; // Import absenceRoutes from absenceRoutes module
+import filiereRoutes from './routes/filiereRoutes.js'; // Import filiereRoutes from filiereRoutes module
+import departementRoutes from './routes/departementRoutes.js'; // Import departementRoutes from departementRoutes module
+import userRoutes from './routes/userRoutes.js'; // Import userRoutes from userRoutes module
+import moduleRoutes from './routes/moduleRoutes.js'; // Import moduleRoutes from moduleRoutes module
+import elementModuleRoutes from './routes/elementModuleRoutes.js'; // Import elementModuleRoutes from elementModuleRoutes module
+import administrateurRoutes from './routes/administrateurRoutes.js'; // Import adminRoutes from adminRoutes module
 import cors from 'cors'; // Import cors module to allow cross-origin requests from the frontend
-import authMiddleware from './middleware/autMiddleware';
-import adminMiddleware from './middleware/adminMiddleware';
+import authMiddleware from './middleware/autMiddleware.js'; // Import authMiddleware from authMiddleware module
+import adminMiddleware from './middleware/adminMiddleware.js'; // Import adminMiddleware from adminMiddleware module
 
 config(); // Load environment variables
  

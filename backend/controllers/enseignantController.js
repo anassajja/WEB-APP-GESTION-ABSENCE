@@ -1,4 +1,4 @@
-import Enseignant from '../models/enseignantModel.js';
+import Enseignant from '../models/Enseignant.js';
 
 export async function createEnseignant(req, res) {
     try {

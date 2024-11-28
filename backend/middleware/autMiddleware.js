@@ -1,4 +1,5 @@
-import { verify } from 'jsonwebtoken'; // Permet de vérifier le token
+import pkg from 'jsonwebtoken'; // Importe le package jsonwebtoken pour vérifier le token
+const { verify } = pkg; // Récupère la fonction verify du package jsonwebtoken
 import { config } from 'dotenv'; // Permet de charger les variables d'environnement
 
 config(); // Charge les variables d'environnement

@@ -1,4 +1,4 @@
-import Absence from '../models/absenceModel.js';
+import Absence from '../models/Absence.js'; // Import the Absence class from the Absence model
 
 // Créer une absence (Create an absence)
 export async function createAbsence(req, res) { // Handle POST requests to /api/absences

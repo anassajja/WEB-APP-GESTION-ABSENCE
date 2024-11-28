@@ -1,4 +1,4 @@
-import Etudiant from '../models/Etudiant'; // Import Etudiant model
+import Etudiant from '../models/Etudiant.js'; // Import Etudiant model
 
 // Créer un étudiant (Create a student)
 export async function createEtudiant(req, res) { // Handle POST requests to /api/etudiants

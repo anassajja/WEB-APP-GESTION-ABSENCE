@@ -1,4 +1,4 @@
-import Administarteur from '../models/administrateurModel.js';
+import Administarteur from '../models/Administrateur.js'; // Import the model
 
 export async function createAdministrateur(req, res) {
   try {

@@ -1,4 +1,4 @@
-import Filiere from '../models/filiereModel.js';
+import Filiere from '../models/Filiere.js'; // Import the Filiere model
 
 export async function createFiliere(req, res) {
     try {

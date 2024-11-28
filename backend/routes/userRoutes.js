@@ -1,6 +1,6 @@
 import { Router } from 'express';
 const router = Router();
-import { authenticateUser, createUser, getAllUsers } from '../controllers/userController';
+import { createUser, getAllUsers, authenticateUser, getUserByEmail, updateUser, deleteUser } from '../controllers/userController.js'; // Import createUser, getAllUsers, authenticateUser, getUserByEmail, updateUser, deleteUser functions from userController module
 
 router.post('/register', createUser); // POST /api/users/register 
 router.get('/', getAllUsers);

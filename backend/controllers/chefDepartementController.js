@@ -1,4 +1,4 @@
-import ChefDepartement from '../models/chefDepartementModel.js';
+import ChefDepartement from '../models/ChefDepartement.js';
 
 // Créer un chef de département (Create a department head)
 export async function createChefDepartement(req, res) { // Handle POST requests to /api/chefDepartements

@@ -1,4 +1,4 @@
-import Departement from '../models/departementModel.js';
+import Departement from '../models/Departement.js'; // Import the Departement class
 
 // Créer un département (Create a department)
 export async function createDepartement(req, res) { // Handle POST requests to /api/departements

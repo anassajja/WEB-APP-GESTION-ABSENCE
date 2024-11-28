@@ -1,4 +1,4 @@
-import Module from "../models/Module";
+import Module from "../models/Module.js";
 
 export async function createModule(req, res) {
     try {

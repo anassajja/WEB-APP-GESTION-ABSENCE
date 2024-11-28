@@ -1,6 +1,6 @@
 import { Router } from 'express'; // Import Router class from express module
 const router = Router(); // Create a new router
-import { createEtudiant, getAllEtudiants } from '../controllers/etudiantController'; // Import createEtudiant and getAllEtudiants functions from etudiantController
+import { createEtudiant, getAllEtudiants } from '../controllers/etudiantController.js'; // Import createEtudiant and getAllEtudiants functions from etudiantController
 
 // Define the POST and GET endpoints
 router.post('/', createEtudiant); // POST /api/etudiants -> creates a new etudiant
