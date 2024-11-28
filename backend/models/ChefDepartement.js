@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
-const enseignantSchema = new Schema({
+const chefDepartementSchema = new Schema({
     nom: { type: String, required: true },
     prenom: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     dateInscription: { type: Date, default: Date.now },
-    });
+});
 
-class Enseignant {
+class ChefDepartement {
     #nom;
     #prenom;
     #email;
@@ -23,10 +23,10 @@ class Enseignant {
     }
 
     static getModel() {
-        return model("Enseignant", enseignantSchema);
+        return model("ChefDepartement", chefDepartementSchema);
     }
 
-    getSafeProfile() { 
+    getSafeProfile() {
         return {
             id: this._id,
             nom: this.#nom,
@@ -67,8 +67,6 @@ class Enseignant {
     displayFullName() {
         return `${this.#nom} ${this.#prenom}`;
     }
-    
 }
 
-export default Enseignant.getModel(); // Export the Mongoose model wrapped with the class 
-
+export default ChefDepartement.getModel();

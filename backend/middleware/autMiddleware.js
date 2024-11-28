@@ -8,8 +8,8 @@ const authMiddleware = (req, res, next) => { // Middleware pour vérifier le tok
   if (!token) return res.status(401).json({ msg: 'Accès refusé, pas de token' }); // Si pas de token, renvoie une erreur
 
   try { // Essaye de vérifier le token
-    const decoded = verify(token, process.env.JWT_SECRET); // Vérifie le token
-    req.user = decoded.user; // Stocke l'utilisateur dans la requête
+    const decoded = verify(token, process.env.JWT_SECRET); // Vérifie le token avec la clé secrète JWT
+    req.user = decoded.user; // Stocke l'utilisateur dans la requête  (req)
     next(); // Passe au prochain middleware
   } catch (err) { // Si une erreur survient
     res.status(401).json({ msg: 'Token invalide' }); // Renvoie une erreur
