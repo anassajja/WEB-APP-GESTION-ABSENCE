@@ -56,11 +56,11 @@ export async function authenticateUser(req, res) {  // Handle POST requests to /
         // Check if user exists and password matches
         if (user && user.password === password) { // Check if the user exists and the password matches the user's password
             // Create payload for the JWT
-            const payload = { // Create a payload object with the user's data
-                id: user._id, // Set the id field to the user's _id property
-                nom: user.nom,  // Set the nom field to the user's nom property
-                prenom: user.prenom, // Set the prenom field to the user's prenom property
-                email: user.email, // Set the email field to the user's email property
+            const payload = { // Create a payload object with the user's data to be included in the JWT token
+                id: user_id, // Add the user's id to the payload object 
+                nom: user.nom, // Add the user's nom to the payload object
+                email: user.email, // Add the user's email to the payload object
+                role : user.role, // Add the user's role to the payload object
             };
 
             // Generate JWT token
