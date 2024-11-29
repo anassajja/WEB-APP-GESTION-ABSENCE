@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         required: true,
+        enum: ['admin', 'chef-departement', 'enseignant', 'etudiant'], // role must be one of these values
     },
     // Add a field to store the user's profile picture
     profilePicture: {

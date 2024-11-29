@@ -1,20 +1,47 @@
-import pkg from 'jsonwebtoken'; // Importe le package jsonwebtoken pour vérifier le token
-const { verify } = pkg; // Récupère la fonction verify du package jsonwebtoken
-import { config } from 'dotenv'; // Permet de charger les variables d'environnement
+import pkg from 'jsonwebtoken'; // Import jsonwebtoken package for verifying tokens
+const { verify } = pkg; // Get the verify function from the jsonwebtoken package
+import { config } from 'dotenv'; // To load environment variables from a .env file
 
-config(); // Charge les variables d'environnement
+config(); // Load environment variables from .env
 
-const authMiddleware = (req, res, next) => { // Middleware pour vérifier le token
-  const token = req.header('x-auth-token'); // Récupère le token du header
-  if (!token) return res.status(401).json({ msg: 'Accès refusé, pas de token' }); // Si pas de token, renvoie une erreur
+// Middleware to check the token
+const authMiddleware = (req, res, next) => {
+  const token = req.header('Authorization'); // Retrieve token from the Authorization header of the request
+  
+  // Check if token exists and is in the correct format (Bearer <token>)
+  if (!token || !token.startsWith('Bearer ')) {
+    return res.status(401).json({ msg: 'Access denied, no token provided or invalid format' });
+  }
+  
+  // Extract the token from the Authorization header
+  const jwtToken = token.split(' ')[1];   
 
-  try { // Essaye de vérifier le token
-    const decoded = verify(token, process.env.JWT_SECRET); // Vérifie le token avec la clé secrète JWT
-    req.user = decoded.user; // Stocke l'utilisateur dans la requête  (req)
-    next(); // Passe au prochain middleware
-  } catch (err) { // Si une erreur survient
-    res.status(401).json({ msg: 'Token invalide' }); // Renvoie une erreur
+  try {
+    // Verify the token with the secret key from the environment variables
+    const decoded = verify(jwtToken, process.env.JWT_SECRET);
+
+    // Attach the decoded user information to the request object
+    req.user = decoded.user;
+
+    // Continue to the next middleware or route handler
+    next(); 
+  } catch (err) {
+    // Catch token verification errors (e.g., token expired or invalid)
+    res.status(401).json({ msg: 'Token is invalid or expired' });
   }
 };
 
-export default authMiddleware; // Exporte le middleware pour utilisation dans d'autres fichiers
+// Middleware to check if the user has the required role(s)
+const roleCheckMiddleware = (roles) => {
+  return (req, res, next) => {
+    // Check if the user role exists and is allowed to access the route
+    if (!roles.includes(req.user.role)) {
+      return res.status(403).json({ msg: 'Access denied, insufficient permissions' });
+    }
+
+    // Continue to the next middleware or route handler
+    next();
+  };
+};
+
+export { authMiddleware, roleCheckMiddleware };
